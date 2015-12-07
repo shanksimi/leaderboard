@@ -1,0 +1,12 @@
+<template name="alerts">
+	<div class="alerts">
+		{{#each mess}}
+			{{> alert}}
+		{{/each}}
+	</div>
+</template>
+<template name="alert">
+	<div class="{{type}}">
+		{{message}}
+	</div>
+</template>

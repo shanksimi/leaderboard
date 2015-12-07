@@ -1,0 +1,23 @@
+<template name="layout">
+<aside id="side">
+	{{> login}}
+</aside>
+<a id="hamburger" href="#">
+	<span></span>
+	<span></span>
+	<span></span>
+</a>
+<div id="wrapper">
+	<header>
+		<h1>#LeaderBoard</h1>
+	</header>
+	<main role="main">
+		<nav>
+			{{> nav active=navActive}}
+		</nav>
+		{{> search title=titleActive}}
+		{{> alerts}}
+		{{> yield}}
+	</main>
+</div>
+</template>

@@ -1,0 +1,22 @@
+<template name="universityList">
+	<div id="page-content">
+	{{#each universities}}
+		<div class="cols">
+			{{> universityListItem}}
+		</div>
+	{{else}}
+		{{> noItem target='University'}}
+	{{/each}}
+	</div>
+	{{> pagination paging=paging}}
+</template>
+<template name="universityListItem">
+<div>{{pos}}.</div>
+	<div><img src="{{logo}}" width="64px" height="64px" /></div>
+	<div><strong>{{title}}</strong><br/>There are {{numbers}} clubs & societies</div>	
+	<div>
+		{{#if isLogged}}
+		<a href="#" class="{{action}}"></a>
+		{{/if}}
+		{{numberFormatHelper points}} PTS</div>
+</template>

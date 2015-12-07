@@ -1,0 +1,20 @@
+<template name="userList">
+	<div id="page-content">
+	{{#each Users}}
+		<div class="cols people">
+			{{> userListItem}}
+		</div>
+	{{else}}
+		{{> noItem target='People'}}
+	{{/each}}
+	</div>
+	{{> pagination paging=paging}}
+</template>
+<template name="userListItem">
+	<div>{{pos}}.</div>
+	<div><img src="{{avatar}}" width="64px" height="64px" /></div>
+	<div><strong>{{username}}</strong><br/>{{email}}</div>	
+	<div>
+		<a href="#" class="{{action}}"></a>
+		{{numberFormatHelper points}} PTS</div>
+</template>

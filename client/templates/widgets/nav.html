@@ -1,0 +1,7 @@
+<template name="nav">
+<ul>
+	<li class="{{#if active.universities}}active{{/if}}"><a  href="{{pathFor 'universityList'}}">Universities</a></li>
+	<li class="{{#if active.groups}}active{{/if}}"><a  href="{{pathFor 'groupList'}}">Societies</a></li>
+	<li class="{{#if active.people}}active{{/if}}"><a  href="/">People</a></li>
+</ul>
+</template>

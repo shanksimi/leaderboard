@@ -1,0 +1,22 @@
+<template name="groupList">
+	<div id="page-content">
+	{{#each groups}}
+		<div class="cols">
+			{{> groupListItem}}
+		</div>
+	{{else}}
+		{{> noItem target='Club & Societies'}}
+	{{/each}}
+	</div>
+	{{> pagination paging=paging}}
+</template>
+<template name="groupListItem">
+	<div>{{pos}}.</div>
+	<div><img src="{{logo}}" width="64px" height="64px" /></div>
+	<div><strong>{{title}}</strong><br/>@{{groupLeader}}</div>	
+	<div>
+		{{#if isLogged}}
+		<a href="#" class="{{action}}"></a>
+		{{/if}}
+		{{numberFormatHelper points}} PTS</div>
+</template>

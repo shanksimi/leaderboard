@@ -1,0 +1,10 @@
+<template name="pagination">
+	<ul class="pagination">	
+		{{#each paging}}
+			{{> paginationItem}}
+		{{/each}}
+	</ul>
+</template>
+<template name="paginationItem">
+	<li class="{{#if active}}active{{/if}}"><a href="{{link}}">{{{label}}}</a></li>
+</template>
