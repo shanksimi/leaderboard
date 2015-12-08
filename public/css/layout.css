@@ -300,3 +300,58 @@ main .message .subtitle-message{ font-size: 14px; line-height: 20px; color: #aaa
 @-webkit-keyframes pulsate{0%{-webkit-transform:scale(0.1,.1);opacity:.3}50%{opacity:.8}100%{-webkit-transform:scale(1.2,1.2);opacity:0}}
 @-moz-keyframes pulsate{0%{-moz-transform:scale(0.1,.1);opacity:.3}50%{opacity:.8}100%{-moz-transform:scale(1.2,1.2);opacity:0}}
 @keyframes pulsate{0%{transform:scale(0.1,.1);opacity:.3}50%{opacity:.8}100%{transform:scale(1.2,1.2);opacity:0}}
+
+
+/* Loading */
+.spinner {
+  margin: 100px auto 0;
+  width: 140px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  margin: 0 2px;
+  background-color: #333;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.6s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.6s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -1.28s;
+  animation-delay: -1.28s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.96s;
+  animation-delay: -0.96s;
+}
+
+.spinner .bounce3 {
+  -webkit-animation-delay: -0.64s;
+  animation-delay: -0.64s;
+}
+
+.spinner .bounce4 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% { 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
