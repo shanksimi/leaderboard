@@ -25,7 +25,7 @@ Template.userList.helpers({
 	 * List all user logged
 	 */
 	Users : function(){
-		var temp =  Meteor.users.find({},{sort: {points:'desc'}}).fetch();
+		var temp =  Meteor.users.find({_id: {$ne: Meteor.userId()}},{sort: {points:'desc'}}).fetch();
 		for(var i = 1; i<= temp.length; i++){
 			temp[i-1].pos = i;
 		}
