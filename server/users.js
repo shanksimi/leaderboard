@@ -19,7 +19,10 @@ Accounts.onCreateUser(function(opt,user){
       verified: true
     });
   } else {
-    user.avatar = opt.avatar;
+    if(opt.avatar && opt.avatar != undefined)
+      user.avatar = opt.avatar;
+    else user.avatar = '/img/photo.jpg';
+
     user.emails = opt.emails;
   }
 	return user;

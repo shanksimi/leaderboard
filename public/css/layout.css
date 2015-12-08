@@ -1,4 +1,4 @@
-html,body{margin:0; font:400 12px/180% 'Open Sans', Arial; overflow-x:hidden;}
+html,body{margin:0; font:400 13px/180% 'Open Sans', Arial; overflow-x:hidden;}
 a{text-decoration:none;}
 *{ -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -12,7 +12,9 @@ header, footer, article, section, nav, menu {   display: block; }
  * Event on mobile
  */
 #hamburger{ width:28px; height:19px; position:fixed; top:10px; right:10px; display:block; z-index: 1;}
-#hamburger > span{display:block; height:3px; background:#fff; margin-top:5px;}
+#hamburger > span{display:block; height:3px; background:#fff; margin-top:5px;
+border-radius:1px; -webkit-border-radius:1px; -moz-border-radius:1px;
+}
 #hamburger > span:first-child{margin:0;}
 
 #side{position: fixed; top:0; left:-270px; bottom:0; width:270px; overflow-y:auto; background: #1b1e24; border-top:1px solid #202326; z-index: 1;
@@ -20,7 +22,7 @@ header, footer, article, section, nav, menu {   display: block; }
 		-ms-transition: all 0.4s ease-out;
 		-o-transition: all 0.4s ease-out;
 		transition: all 0.4s ease-out;}
-#side .hint{display:block;margin: 30px 15px 0 15px; color:#fff;}
+#side .hint{ display:block;margin: 30px 15px 15px 15px; color:#fff;}
 #side .hint h3{font-size:16px; font-weight:400; text-transform:uppercase; }
 #side .hint p{color:#8b91a0;}
 #side .hint img{max-width:100%;}
@@ -41,51 +43,92 @@ header, footer, article, section, nav, menu {   display: block; }
 	#hamburger{ display:none; }
     #side{ left:0px; }
     #wrapper{ left:270px; }
+    #side .hint{position:absolute; bottom:0;}
 }    
 
+
+#logo{background:#22262E; padding:1px; text-align:center;}
+#logo p{margin-bottom:20px;}
 
 /**
  * Login section
  */
-#login{position: relative;/* top: 20px; */ left: 0px;right: 0px;padding: 20px 0 0 0;}
-#login .login-close-text,#login .login-link-text{/* margin-bottom:20px; */ display:block; cursor:pointer;}
-#login-sign-in-link{width: 100px; bordeR:1px solid #fff; margin:0 auto; padding:6px 6px 6px 15px; border-radius:5px;}
-#login .login-close-text{display:none;}
-#login *{color:#fff;}
-#login .or{margin:10px 0;}
-#login-buttons{font-size: 14px;text-align:center; display:block;}
-#login-buttons a{text-transform:uppercase; font-weight:300; text-decoration:none;}
-#login-buttons:hover a{color:#fff;}
+#login{position: relative;/* top: 20px; */ left: 0px;right: 0px;padding: 0px 0 40px 0; background:#22262E;}
+#login:after{content:''; display:block; position:absolute; left:50%; bottom:-20px; border-left:20px solid transparent; border-right:20px solid transparent; border-top:20px solid #22262E;  
+	transform: translateX(-20px);
+	-webkit-transform: translateX(-20px);
+	-moz-transform: translateX(-20px);
+	-o-transform: translateX(-20px);
+	-ms-transform: translateX(-20px);
+ }
 
-#login-dropdown-list{top: 0px; left:0; right:0; width:auto;position: relative;/* background:#34383C; */padding: 20px 10px;}
-#login-dropdown-list:after{clear:both; display:block; content:'';}
-#login-buttons .login-button{ position:relative; margin:5px 0 0 0; border:none; outline:none; padding:7px 1em; line-height:20px; background:#2cc5d2; font-size:14px; text-align:center; cursor:pointer;
+#login input[type=submit]{
+    position:relative; color:#fff;  margin: 5px 0 0 0; border:none;  outline:none;
+    padding:7px 1em; line-height:20px;  background:#2cc5d2; font-size:14px;
+    text-align:center;  cursor:pointer; display:block; width:100%;
     -webkit-transition: all 200ms ease-in;
     -moz-transition: all 200ms ease-in;
     -o-transition: all 200ms ease-in;
     transition: all 200ms ease-in;
 }
-#login-buttons .login-button:hover{background:#28b1bd;}
+#login input[type=submit]:hover{background:#28b1bd;}
 #login-buttons .text-besides-image{margin:0;}
-#login .login-form > div{position:relative;}
-#login-email-label, #login-password-label, #login-username-label, #login-username-or-email-label, #forgot-password-email-label{
-    position:absolute; left:10px; color:#dbdbdb; font-size:13px; top:5px; point-events:none;
-}
+#login .message-error{color: #F00;margin-top: 10px;font-size: 12px;line-height: 18px;}
 
-#login-buttons #login-buttons-facebook{background:#3a589e;}
-#login-buttons #login-buttons-google{background:#000;}
-#login-buttons .login-image{width:34px; height:34px; position:absolute; top:0px; left:0;}
-#login-buttons-image-google{background:url('/img/g.png') no-repeat center center;}
-#login-buttons-image-facebook{background:url('/img/f.png') no-repeat center center; }
-#login-buttons input[type=text], .accounts-dialog input[type=text], #login-buttons input[type=email], .accounts-dialog input[type=email], #login-buttons input[type=password], .accounts-dialog input[type=password]{
-    border:0; outline:0; padding:8px 10px; color: #333333; margin: 5px 0 0 0; display:block; width:100%;
+#login-buttons-facebook,#login-buttons-google{display:block; position:relative; line-height:20px; padding:6px 0 6px 40px; margin:10px 10px 0 10px; color:#fff; }
+#login-buttons-facebook{background:#3a589e;}
+#login-buttons-google{background:#000;}
+#login-buttons-facebook .login-image, #login-buttons-google .login-image{width:34px; height:34px; position:absolute; top:0px; left:0;}
+#login-buttons-google .login-image{background:url('/img/g.png') no-repeat center center;}
+#login-buttons-facebook .login-image{background:url('/img/f.png') no-repeat center center; }
+
+#login form{padding:10px; color:#fff;}
+#login form h2{font-weight:300; font-size:20px; line-height:24px; margin:5px 0;}
+#login form .subtitle{font-size:13px; font-style:italic; color:#f0fafa;}
+#login form p{margin:5px 0; font-size:12px;}
+#login form a{color:#fff;}
+#login form a:hover{text-decoration:underline;}
+#login form .right{float:right;}
+
+#login input[type=text], #login input[type=email], #login input[type=password]{
+    border:0; font-family:'Open Sans'; 
+    outline:0;
+    padding:8px 10px;
+    color: #333333;
+    margin: 5px 0 0 0;
+    width:100%;
+    display:block;
 }
 
 #login .login-form{text-align:left;}
 #login-buttons #forgot-password-link,#login-buttons #signup-link,#login-buttons #back-to-login-link{float:left; text-transform:capitalize;margin: 20px 0 5px 0; width:50%; font-size:13px;}
 #login-buttons #forgot-password-link{text-align:right;}
-#login .additional-link{cursor:pointer;}
 
+
+#side .profile{position:relative;padding: 0 10px;}
+#side .profile .avatar{display:block; width:76px; height:76px;border: 6px solid #1B1E24; position:absolute; top:-38px; left:10px; border-radius:50%; -webkit-border-radius:50%; -moz-border-radius:50%;}
+#side .profile .avatar img{width:64px; height:64px; border-radius:50%; -webkit-border-radius:50%; -moz-border-radius:50%;}
+#side .profile .status{display:block; padding:10px 0 10px 90px; color:#929fa5; position:absolute; top:-41px;}
+#side .profile .status strong, #side .profile .status a{color:#fff;}
+#side .profile .status strong{font-size:16px; font-weight:400;}
+#side .profile .status p{margin: 0 0 10px 0; line-height:20px;}
+#side .profile .status .online{position:relative; display: inline-block; vertical-align:middle; height:20px; width:20px; }
+
+#side .profile .bar{display:block; padding:60px 10px 20px 10px; position:relative;margin: 5px 0;}
+#side .profile .bar > a{display:block; height:4px; background:#16191E; margin-right:60px; border-radius: 1px; }
+#side .profile .bar > a > span{display:block; height:4px; background:#0aa699; position:relative; width:0px; border-radius: 1px;}
+#side .profile .bar > span{    background-color: #2d3139;
+    border-radius: 3px 3px 3px 3px;
+    color: #8B91A0;
+    display: inline-block;
+    font-size: 11px;
+    padding: 4px 6px;
+    bottom:6px;
+    left: 190px;
+    position: absolute; }
+
+#logout{font-weight: 600;color: #40454E; margin-left:10px; display:block; padding-left:32px; background:url('/img/power.png') no-repeat left center;}
+#logout:hover{background-image:url('/img/power-white.png'); color:#fff;}
 
 /**
  * Layout structure
@@ -124,9 +167,9 @@ nav ul li.active a{color:#fff;}
 /**
  * Message 
  */
-.message{position: absolute; top: 45%; right: 0; bottom: auto; left: 0; width: auto; height: auto; -webkit-transform: translate3d(0, -50%, 0); -moz-transform: translate3d(0, -50%, 0); -ms-transform: translate3d(0, -50%, 0); -o-transform: translate3d(0, -50%, 0); transform: translate3d(0, -50%, 0); text-align: center;} 
-.message .title-message{    font-size: 24px; line-height: 28px; font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; color: #1c3f53; margin-bottom: .5em;}
-.message .subtitle-message{ font-size: 14px; line-height: 20px; color: #aaaaaa;}
+main .message{position: absolute; top: 45%; right: 0; bottom: auto; left: 0; width: auto; height: auto; -webkit-transform: translate3d(0, -50%, 0); -moz-transform: translate3d(0, -50%, 0); -ms-transform: translate3d(0, -50%, 0); -o-transform: translate3d(0, -50%, 0); transform: translate3d(0, -50%, 0); text-align: center;} 
+main .message .title-message{    font-size: 24px; line-height: 28px; font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300; color: #1c3f53; margin-bottom: .5em;}
+main .message .subtitle-message{ font-size: 14px; line-height: 20px; color: #aaaaaa;}
 
 /**
  * Alert section
@@ -165,7 +208,18 @@ nav ul li.active a{color:#fff;}
 /**
  * Pagination
  */
-.pagination{position: fixed; bottom:0;left: 0; right: 0; height: 48px; text-align:center; margin:0; padding: 5px 0; background:#fff; z-index:1000; border-top:1px solid #fafafa;
+.pagination{
+	position: fixed;
+	bottom:0;
+	left: 0;
+	right: 0;
+	height: 48px;
+	text-align:center;
+	margin:0;
+	padding: 5px 0;
+	background: #eeeff0;
+	z-index:1000;
+	border-top: 1px solid #ddd;
 	-webkit-transition: all 0.4s ease-out;
 	-moz-transition: all 0.4s ease-out;
 	-ms-transition: all 0.4s ease-out;
@@ -173,18 +227,20 @@ nav ul li.active a{color:#fff;}
 	transition: all 0.4s ease-out;
 }
 .pagination li{display: inline-block; vertical-align: top; margin:0px 2px;}
-.pagination li a{ position:relative;
+.pagination li a{
+	position:relative;
 	display: block;
 	height: 38px;
 	width: 38px;
-	border:1px solid #e0e0e0;
+	border: 1px solid #CCCCCC;
 	line-height:38px;
 	text-align:center;
-	color:#e0e0e0;
+	color: #ccc;
 	border-radius: 50%;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
 	overflow:hidden;
+	font-size:14px;
 }
 .pagination li a img{position:absolute; top:0; left:0; right:0; }
 .pagination li:hover a img{top:-36px;}
@@ -212,7 +268,7 @@ nav ul li.active a{color:#fff;}
 .cols > div:first-child{width:24px;text-align: center;line-height: 62px;}
 .cols > div:first-child + div{width:48px;}
 .cols > div:first-child + div img{ width:48px; height:48px; margin:7px 0; }
-.cols > div:first-child + div + div{width: 156px; padding:14px 5px; line-height: 17px; font-size:11px;}
+.cols > div:first-child + div + div{width: 156px; padding:14px 5px; line-height: 17px;font-size: 12px;}
 .cols > div:first-child + div + div strong{font-size:13px;}
 .cols > div:first-child + div + div + div{width:80px; line-height:62px; font-size:14px; float:right; margin-right:10px;text-align: right;}
 .like,.dislike{width:32px; height:32px; background:url('/img/thumb-up.png') no-repeat top left; display:inline-block; vertical-align:middle;}
@@ -237,3 +293,10 @@ nav ul li.active a{color:#fff;}
 
 
 
+/* Hotspot */
+.pulse-dot{position: absolute; top:4px; left:7px; width: 10px; height: 10px; background-color: #00C2FF; border-radius: 50%; -webkit-border-radius: 50%; border: 2px solid #eee;}
+.pulse-dot > .expanding-circle{border: 3px solid #00C2FF; -webkit-border-radius: 50%; border-radius: 50%; height: 22px; width: 22px; position: absolute; left: -8px; top: -8px; opacity: 0; -o-animation: pulsate 1.8s ease-out infinite; -webkit-animation: pulsate 1.8s ease-out infinite; -moz-animation: pulsate 1.8s ease-out infinite; animation: pulsate 1.8s ease-out infinite;} 
+@-o-keyframes pulsate{0%{-o-transform:scale(0.1,.1);opacity:.3}50%{opacity:.8}100%{-o-transform:scale(1.2,1.2);opacity:0}}
+@-webkit-keyframes pulsate{0%{-webkit-transform:scale(0.1,.1);opacity:.3}50%{opacity:.8}100%{-webkit-transform:scale(1.2,1.2);opacity:0}}
+@-moz-keyframes pulsate{0%{-moz-transform:scale(0.1,.1);opacity:.3}50%{opacity:.8}100%{-moz-transform:scale(1.2,1.2);opacity:0}}
+@keyframes pulsate{0%{transform:scale(0.1,.1);opacity:.3}50%{opacity:.8}100%{transform:scale(1.2,1.2);opacity:0}}

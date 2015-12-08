@@ -1,4 +1,4 @@
-Template.alert.rendered = function(){
+Template.alert.onRendered = function(){
 	var id = this.data._id;
 	Meteor.setTimeout(function() {
 		Alerts.remove(id);

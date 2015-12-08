@@ -22,6 +22,5 @@ check
 accounts-facebook
 service-configuration
 accounts-password
-accounts-ui-unstyled
 reactive-var
 random

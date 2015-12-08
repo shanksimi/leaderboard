@@ -1,0 +1,77 @@
+<template name="account">
+	<div id="logo">
+		<p><img src="/img/meteor-logo-white.png" /></p>
+		{{#if isLogged}}
+			<p>&nbsp;</p>
+		{{/if}}
+	</div>
+	{{#if isLogged}}
+		<div class="profile">
+			{{#with user}}
+				{{> profile}}
+			{{/with}}
+		</div>
+	{{else}}
+		<div id="login">		
+		    {{#if isLogging}}
+		    	{{> login}}
+		    {{else}}
+				{{> register}}
+		    {{/if}}
+		    <a href="#" id="login-buttons-facebook">
+	     		<div class="login-image facebook"></div>
+	      		<span>Sign in with Facebook</span>
+	      	</a>
+	      	<a href="#" id="login-buttons-google">
+		      	<div class="login-image google"></div>
+		        <span>Sign in with Google</span>
+		    </a>
+		</div>
+	{{/if}}
+	<div class="hint">
+		<h3>DID YOU KNOW?</h3>
+		<p align="center"><img src="{{hint.image}}" /></p>
+		<p>{{{hint.text}}}</p>
+	</div>
+</template>
+
+<!-- Profile -->
+<template name="profile">
+	<a href="javascrip:;" class="avatar" title="avatar"><img src="{{avatar}}" alt="avatar" /></a>
+	<div class="status">
+		<p><strong>{{username}}</strong></p>
+		<p>Status: <a href="#" class="online"><span class="pulse-dot"><i class="expanding-circle"></i></span></a> <a href="#">Online</a></p>
+	</div>
+	<div class="bar" data-point="{{points}}">
+		<a href="#"><span></span></a><span>{{points}} pts</span>
+	</div>
+	<p><a id="logout" href="#">Log out.</a></p>
+</template>
+
+<!-- Register Form -->
+<template name="register">
+    <form name="register-form">
+    	<h2>Register</h2>
+    	<p class="subtitle">Be first of your friend to join us</p>
+        <input type="text" name="registerUsername" placeholder="Username" />
+        <input type="email" name="registerEmail" placeholder="Email address" />
+        <input type="password" name="registerPassword" placeholder="Password" />
+        <input type="password" name="registerRePassword" placeholder="RePassword" />
+        <span class="message-error">{{error}}</span>
+        <input type="submit" value="Register Now">
+        <p>Have an account? <a id="btn-login" href="#">Login</a></p>
+    </form>
+</template>
+
+<!-- Singin Form -->
+<template name="login">
+    <form name="login-form">
+    	<h2>Login</h2>
+    	<p class="subtitle">Signing in to access your works</p>
+        <input type="email" name="loginEmail" placeholder="Email address" />
+        <input type="password" name="loginPassword" placeholder="Password" />
+        <span class="message-error">{{error}}</span>
+        <input type="submit" value="Login">
+         <p><a href="#">Forgot password?</a><a id="btn-register" class="right" href="#">Register</a></p>
+    </form>
+</template> 

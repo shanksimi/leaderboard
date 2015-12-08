@@ -13,3 +13,10 @@ Template.registerHelper('numberFormatHelper',function(number){
 	}
 	return temp.join('.');
 });
+
+/**
+ * User login check
+ */
+Template.registerHelper('isLogged',function(number){
+	return (Meteor.user()?true:false);
+});

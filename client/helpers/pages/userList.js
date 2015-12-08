@@ -43,13 +43,6 @@ Template.userList.helpers({
 
 Template.userListItem.helpers({
 	/**
-	 * User login check
-	 */
-	isLogged: function() {
-	    return (Meteor.user()?true:false);
-	},
-
-	/**
 	 * Get main email address
 	 */
 	email:function(){

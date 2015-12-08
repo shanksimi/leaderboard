@@ -12,7 +12,15 @@ if(Meteor.isServer){
 			else	
 				return Meteor.users.find().count();
 
+		},
+
+		/**
+		 * Method: Get user profile
+		 */
+		getUser: function(dataAttributes){
+			return Meteor.users.findOne({ _id: Meteor.userId() });
 		}
+
 	});
 }
 
